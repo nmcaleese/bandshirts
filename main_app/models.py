@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 # Create your models here.
 class Shirt(models.Model):
     band = models.CharField(max_length=100)
@@ -8,3 +9,6 @@ class Shirt(models.Model):
 
     def __str__(self):
         return f"{self.band}'s {self.description} shirt"
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'shirt_id': self.id})
