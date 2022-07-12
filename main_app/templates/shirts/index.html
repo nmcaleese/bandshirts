@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Band Shirt List</h1>
+
+{% for shirt in shirts %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ shirt.band }}</span>
+    <p>Description: {{ shirt.description }}</p>
+    <p>Size: {{ shirt.size }}</p>
+    <p>Color: {{ shirt.color }}</p>
+  </div>
+</div>
+{% endfor %} {% endblock %}
