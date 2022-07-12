@@ -9,6 +9,10 @@
     <p>Size: {{ shirt.size }}</p>
     <p>Color: {{ shirt.color }}</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'shirts_update' shirt.id %}">Edit</a>
+    <a href="{% url 'shirts_delete' shirt.id %}">Delete</a>
+  </div>
 </div>
 
 {% endblock %}
