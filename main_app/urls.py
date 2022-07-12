@@ -6,4 +6,5 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     # route for bandshirts index
     path("shirts/", views.shirts_index, name="index"),
+    path('shirts/<int:shirt_id>', views.shirts_detail, name='detail'),
 ]

@@ -13,3 +13,7 @@ def about(request):
 def shirts_index(request):
     shirts = Shirt.objects.all()
     return render(request, "shirts/index.html", {"shirts": shirts})
+
+def shirts_detail(request, shirt_id):
+  shirt = Shirt.objects.get(id=shirt_id)
+  return render(request, 'shirts/detail.html', {'shirt': shirt}) 
