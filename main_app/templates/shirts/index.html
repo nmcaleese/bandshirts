@@ -4,7 +4,7 @@
 
 {% for shirt in shirts %}
 <div class="card">
-  <a href="/shirts/{{ shirt.id }}">
+  <a href="{% url 'detail' shirt.id %}">
     <div class="card-content">
       <span class="card-title">{{ shirt.band }}</span>
       <p>Description: {{ shirt.description }}</p>

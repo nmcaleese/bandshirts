@@ -23,12 +23,12 @@
         <div class="nav-wrapper">
           <ul>
             <li>
-              <a href="/" class="left brand-logo">&nbsp;&nbsp;Band Shirts</a>
+              <a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Band Shirts</a>
             </li>
           </ul>
           <ul class="right">
-            <li><a href="/about">About</a></li>
-            <li><a href="/shirts">View All Bandshirts</a></li>
+            <li><a href="{% url 'about' %}"">About</a></li>
+            <li><a href="{% url 'index' %}">View All Bandshirts</a></li>
           </ul>
         </div>
       </nav>
