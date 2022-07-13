@@ -1,7 +1,7 @@
-{% extends 'base.html' %} {% block content %} {% if shirt %}
-<h1>Edit <span class="teal-text">{{ shirt.band }}</span></h1>
+{% extends 'base.html' %} {% block content %} {% if band %}
+<h1>Edit <span class="teal-text">{{ band.band }}</span></h1>
 {% else %}
-<h1>Add Shirt</h1>
+<h1>Add Band</h1>
 {% endif %}
 <form action="" method="POST">
   {% csrf_token %}

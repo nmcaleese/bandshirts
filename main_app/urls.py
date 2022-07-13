@@ -4,12 +4,12 @@ from . import views
 urlpatterns = [
     path("", views.home, name="home"),
     path("about/", views.about, name="about"),
-    # route for bandshirts index
-    path("shirts/", views.shirts_index, name="index"),
-    path('shirts/<int:shirt_id>', views.shirts_detail, name='detail'),
-    #new route to create a band shirt
-    path('shirts/create/', views.ShirtCreate.as_view(), name='shirts_create'),
-    path('shirts/<int:pk>/update/', views.ShirtUpdate.as_view(), name='shirts_update'),
-    path('shirts/<int:pk>/delete/', views.ShirtDelete.as_view(), name='shirts_delete'),
+    # route for bands index
+    path("bands/", views.bands_index, name="index"),
+    path('bands/<int:band_id>', views.bands_detail, name='detail'),
+    #new route to create a band
+    path('bands/create/', views.BandCreate.as_view(), name='bands_create'),
+    path('bands/<int:pk>/update/', views.BandUpdate.as_view(), name='bands_update'),
+    path('bands/<int:pk>/delete/', views.BandDelete.as_view(), name='bands_delete'),
 
 ]

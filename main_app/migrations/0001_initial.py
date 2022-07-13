@@ -12,13 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Shirt',
+            name='Band',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('band', models.CharField(max_length=100)),
                 ('description', models.CharField(max_length=100)),
-                ('size', models.CharField(max_length=5)),
-                ('color', models.CharField(max_length=15)),
             ],
         ),
     ]

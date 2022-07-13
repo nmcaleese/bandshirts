@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Shirt
+from .models import Band
 
 # Create your views here.
 def home(request):
@@ -11,25 +11,25 @@ def about(request):
     return render(request, "about.html")
 
 
-def shirts_index(request):
-    shirts = Shirt.objects.all()
-    return render(request, "shirts/index.html", {"shirts": shirts})
+def bands_index(request):
+    bands = Band.objects.all()
+    return render(request, "bands/index.html", {"bands": bands})
 
 
-def shirts_detail(request, shirt_id):
-    shirt = Shirt.objects.get(id=shirt_id)
-    return render(request, "shirts/detail.html", {"shirt": shirt})
+def bands_detail(request, band_id):
+    band = Band.objects.get(id=band_id)
+    return render(request, "bands/detail.html", {"band": band})
 
 
-class ShirtCreate(CreateView):
-  model = Shirt
+class BandCreate(CreateView):
+  model = Band
   fields = '__all__'
-  # success_url = '/shirts/'
+  # success_url = '/bands/'
 
-class ShirtUpdate(UpdateView):
-  model = Shirt
-  fields = ['description', 'size', 'color']
+class BandUpdate(UpdateView):
+  model = Band
+  fields = ['description']
 
-class ShirtDelete(DeleteView):
-  model = Shirt
-  success_url = '/shirts/'
+class BandDelete(DeleteView):
+  model = Band
+  success_url = '/bands/'
