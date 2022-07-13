@@ -15,6 +15,11 @@
     </div>
   </div>
   <div class="col s6">
+    <form action="{% url 'add_shirt' band.id %}" method="POST">
+      {% csrf_token %}
+      {{ shirt_form.as_p }}
+      <input type="submit" class="btn" value="Add Shirt">
+    </form>
     <table class="striped">
       <thead>
         <tr>
@@ -35,4 +40,10 @@
     </table>
   </div>
 </div>
+
+<script>
+const selectEl = document.getElementById('id_size');
+  M.FormSelect.init(selectEl);
+</script>
+
 {% endblock %}

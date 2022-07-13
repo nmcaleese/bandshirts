@@ -30,3 +30,4 @@ class Shirt(models.Model):
 
     def __str__(self):
         return f"{self.design}, in {self.color}, size:{self.get_size_display()}"
+    
