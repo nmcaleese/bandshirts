@@ -8,6 +8,16 @@ SIZES = (
     ('L', 'Large')
 )
 
+class Award(models.Model):
+    name = models.CharField(max_length= 50)
+
+    def __str__(self):
+        return f"{self.name}"
+
+    def get_absolute_url(self):
+        return reverse("award_detail", kwargs={'pk': self.id})
+
+
 class Band(models.Model):
     band = models.CharField(max_length=100)
     description = models.CharField(max_length=100)

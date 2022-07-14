@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Band
+from django.views.generic import ListView, DetailView
+from .models import Band, Award
 from .forms import ShirtForm
 
 # Create your views here.
@@ -24,14 +25,6 @@ def bands_detail(request, band_id):
         request, "bands/detail.html", {"band": band, "shirt_form": shirt_form}
     )
 
-def add_shirt(request, band_id):
-  form = ShirtForm(request.POST)
-  if form.is_valid():
-    new_shirt = form.save(commit=False)
-    new_shirt.band_id = band_id
-    new_shirt.save()
-  return redirect ('detail', band_id=band_id)
-
 
 class BandCreate(CreateView):
     model = Band
@@ -49,3 +42,28 @@ class BandDelete(DeleteView):
     success_url = "/bands/"
 
 
+def add_shirt(request, band_id):
+    form = ShirtForm(request.POST)
+    if form.is_valid():
+        new_shirt = form.save(commit=False)
+        new_shirt.band_id = band_id
+        new_shirt.save()
+    return redirect("detail", band_id=band_id)
+
+class AwardList(ListView):
+    model = Award
+
+class AwardDetail(DetailView):
+    model = Award
+
+class AwardCreate(CreateView):
+    model = Award
+    fields = '__all__'
+
+class AwardUpdate(UpdateView):
+    model = Award
+    fields = '__all__'
+
+class AwardDelete(DeleteView):
+    model = Award
+    success_url = '/awards/'
